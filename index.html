@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>TaskMastery</title>
+</head>
+
+<body style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative; height: 100vh;">
+    <div class="container">
+        <div class="panel" style="display: flex;flex-direction: row;gap: 10px; margin: 10px 100px;">
+            <div id="pomodoro" class="workingState active">Pomodoro</div>
+            <div id="short-break" class="workingState">Short break</div>
+            <div id="long-break" class="workingState">Long break</div>
+        </div>
+        <div class="center content">
+            <div class="main-container ">
+                <!-- progress indicator -->
+                <div class="circle-container center">
+                    <div class="semicircle"></div>
+                    <div class="semicircle"></div>
+                    <div class="semicircle"></div>
+                    <div class="outermost-circle"></div>
+                </div>
+                <!-- timer  -->
+                <div class="timer-container center">
+                    <div class="timer center"></div>
+                </div>
+            </div>
+            <div class="btns">
+                <button id="start">START</button>
+                <button id="stop">STOP</button>
+                <button id="reset">RESET</button>
+            </div>
+        </div>
+
+        <div class="content" style="display: flex;gap: 5px;  align-items: center; margin: 10px ">
+            <div>Sessions: </div>
+            <div id="sessions"  style="display: flex;gap: 5px;  align-items: center;">
+                <template id="icon-template">
+                    <svg id="sessionDone-icon" class="session-icon donesession" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
+                    </svg>
+                </template>
+                <svg class="session-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- todo list  -->
+    <div class="todo-container container">
+        <div id="date">today</div>
+        <div id="items" class="items"></div>
+
+        <template id="itemTemplate">
+            <div class="item">
+                <input type="checkbox" class="item-completed btn">
+                <input type="text" class="item-description" placeholder="Do-do item...">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    class="x-icon"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
+                </svg>
+            </div>
+        </template>
+        <button id="add" style="margin: 10px auto">Add item</button>
+    </div>
+
+    <!-- audio -->
+    <div class="audio-container container">
+        <div id="audio-selector">
+            <div id="forest" class="theme"><!--🌲 -->🌲Forest</div>
+            <div id="ocean" class="theme"><!--🌊 -->Ocean</div>
+            <div id="rainy" class=" theme"><!--🌧 -->Rainy</div>
+            <div id="peace" class="theme active"><!--🧘 -->Peace</div>
+            <div id="cafe" class="theme"><!--☕ -->Caf&eacute;</div>
+            <div id="mute" class="theme"><!--☕ -->Mute</div>
+        </div>
+
+        <audio id="playingAudio" controls volume="0.5" loop style="display: block; margin: 5px auto">
+            <source src="https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/peace.mp3"
+                type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- time up alarm -->
+    <audio id="time-up-alarm" src="./assets/sound/time_up_samsung.mp3">
+    </audio>
+</body>
+
+</html>
+
+<!-- 
+    item inside the template it means it is not going to be rendered on the page
+ -->

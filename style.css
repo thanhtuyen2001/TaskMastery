@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* text-align: center; */
+
+
+}
+
+html {
+    background: url(https://images.unsplash.com/photo-1489981424607-45c58daf0581?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    /* background: url(https://images.unsplash.com/photo-1425736317462-a103b1303a35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60); */
+    /* background: url(https://images.unsplash.com/photo-1488294911122-ea842c2c566a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTA4NDI4fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60); */
+    /* background: url(https://images.unsplash.com/photo-1511207538754-e8555f2bc187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHw0NzE1NDh8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60); */
+}
+
+.container {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+:root {
+    --pirmary: #5F8D4E;
+    --secondary: #E8F3D6;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.workingState {
+    width: fit-content;
+    color: var(--pirmary);
+    padding: 5px 10px;
+    margin: 20px auto;
+    /* background-color: #E8F3D6; */
+    border-radius: 5px;
+    clear: both;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.active {
+    background-color: #E8F3D6;
+
+}
+
+.content {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    row-gap: 100px; */
+
+    margin: 0 50px;
+}
+
+.main-container {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    float: left;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100px;
+    margin: 0px 40px;
+}
+
+.btns button {
+    padding: 10px 15px;
+    color: white;
+    background-color: var(--pirmary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px darkgreen;
+}
+
+.btns button:active {
+    background-color: #ADE792;
+
+}
+
+/* progress indicator */
+.circle-container {
+    height: 250px;
+    width: 250px;
+    background-color: #ddd;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.semicircle {
+    width: 51.5%;
+    height: 101%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform-origin: right center;
+}
+
+.semicircle:nth-child(1) {
+    background-color: var(--pirmary);
+    z-index: 2;
+}
+
+.semicircle:nth-child(2) {
+    background-color: var(--pirmary);
+    z-index: 3;
+}
+
+.semicircle:nth-child(3) {
+    background-color: #ddd;
+    z-index: 4;
+    /* display: none; */
+}
+
+.outermost-circle {
+    width: 230px;
+    height: 230px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 5;
+
+    /* display: none; */
+}
+
+/* hover for testing only  */
+/* .main-container:hover .semicircle:nth-child(1){
+    transform: rotate(180deg);
+    transition: 2s linear;
+}
+.main-container:hover .semicircle:nth-child(2){
+    transform: rotate(360deg);
+    transition: 2s linear;
+}
+.main-container:hover .semicircle:nth-child(3){
+    opacity: 0;
+    transition: opacity 0s 1s;
+} */
+
+/* timer */
+.timer-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 6;
+}
+
+.timer {
+    width: 80px;
+    height: 80px;
+    z-index: 7;
+}
+
+.timer div {
+    font-size: 50px;
+    font-weight: 600;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.session-icon{
+    background-color: #DDDDDD;
+    border-radius: 50%;
+    color: var(--pirmary)
+}
+.donesession{
+    background-color: var(--pirmary);
+    
+}
+
+
+/* TODO LIST  */
+.items {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.item {
+    margin-bottom: 7px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.todo-container {
+    padding: 10px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+
+}
+
+
+
+#date {
+    margin: 20px auto;
+    font-size: large;
+    font-weight: bold;
+    color: var(--pirmary);
+}
+
+.item-description {
+    padding: 5px 8px;
+    width: 220px;
+    margin-bottom: 5px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.item-completed:checked {
+    /* color: red; */
+    background-color: var(--secondary);
+    text-align: center;
+}
+
+.item-completed:checked::after {
+    content: "\2713";
+    width: 15px;
+    height: 15px;
+    
+}
+
+.item-completed:checked+.item-description {
+    background-color: #dddd;
+    text-decoration: line-through;
+}
+
+#add {
+    padding: 8px 14px;
+    font-weight: bold;
+    color: #ffff;
+    background: var(--pirmary);
+    border-radius: 10px;
+    border: none;
+}
+
+svg {
+    height: 20px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+/* audio container */
+.audio-container {
+    position: absolute;
+    min-width: 500px;
+    bottom: 50px;
+
+}
+
+#audio-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+#audio-selector div {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-seek-back-button,
+audio::-webkit-media-controls-seek-forward-button,
+audio::-webkit-media-controls-timeline {
+    display: none;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #BFCCB5;
+    display: flex;
+    justify-content: space-around;
+
+}
