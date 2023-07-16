@@ -21,7 +21,7 @@ function checkDay() {
         case 6:
             weekDay = "Saturday";
             break;
-        case 7:
+        case 0:
             weekDay = "Sunday";
             break;
         default:
@@ -93,21 +93,11 @@ function changeWorkingState(state) {
     }
 }
 function calculateTime() {
-    // const hours = hr * 3600000;
-    // const minutes = min * 60000;
-    // const senconds = sec * 1000;
-
     setTime = hr * 3600000 + min * 60000 + sec * 1000;
     remainingTime = setTime;
 }
 function initial() {
     changeWorkingState(currentWorkingState);
-
-    // hr = 0;
-    // min = 25;
-    // // min = 1;
-    // sec = 0;
-    // setTimer(hr, min, sec);
 
     isRunning = false;
     calculateTime();
