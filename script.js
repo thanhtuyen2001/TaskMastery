@@ -222,24 +222,31 @@ function getItem() {
 
 // set items --> refresh what we just save
 function setItems(items) {
-    const itemsJson = JSON.stringify(items); // convert back to json so it can be saved in local storage
+    const itemsJson = JSON.stringify(items); // convert to json string so it can be saved in local storage
 
     localStorage.setItem("todo", itemsJson);
 }
 
-
+var isFocus = false; 
 function addItem() {
     items.unshift({ // add new elements to the beginning of the array
         description: "",
         completed: false,
     });
+    isFocus = true; 
 
     // save item and refresh list 
     setItems(items);
     // refresh the list once the item has been added
     refreshList();
+    
 }
 
+function focusOnsNewItem(element){
+    // console.log(element)
+    element.focus(); 
+    isFocus = false; 
+}
 function updateItem(item, key, value) {
     item[key] = value;
 
@@ -262,13 +269,15 @@ function refreshList() {
         if (b.completed) {
             return -1;
         }
-        return a.description < b.description ? -1 : 1; // sort the list alphabetically
+        // return a.description < b.description ? -1 : 1; // sort the list alphabetically
+        return 0; 
     })
 
     // clear the html and refresh it with new data
     ITEMS_CONTAINER.innerHTML = "";
 
     for (const item of items) {
+        console.log(1);
         // taking the template element, then get the content from that template, then say it let's clone or make a copy of div
         const itemElement = ITEM_TEMPLATE.content.cloneNode(true);
         const descriptionInput = itemElement.querySelector(".item-description");
@@ -278,21 +287,30 @@ function refreshList() {
         descriptionInput.value = item.description;
         completedInput.checked = item.completed;
 
+        let index = items.indexOf(item);
+        if(index > 0 && item.description === ''){
+            items.splice(index, 1);
+            continue;
+        }
+
+        // create event listener for each item 
         descriptionInput.addEventListener('change', () => {
-            // console.log(descriptionInput.value);
             updateItem(item, "description", descriptionInput.value);
         });
         completedInput.addEventListener('change', () => {
             updateItem(item, "completed", completedInput.checked);
         });
         removeBtn.addEventListener('click', () => {
-            const index = items.indexOf(item);
             if (index > -1) {
                 removeItem(item, index);
             }
         })
 
         ITEMS_CONTAINER.append(itemElement);
+    }
+    if(isFocus){
+        focusOnsNewItem(ITEMS_CONTAINER.firstElementChild.querySelector(".item-description"))
+        isFocus = false; 
     }
 }
 
