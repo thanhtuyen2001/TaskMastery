@@ -277,7 +277,6 @@ function refreshList() {
     ITEMS_CONTAINER.innerHTML = "";
 
     for (const item of items) {
-        console.log(1);
         // taking the template element, then get the content from that template, then say it let's clone or make a copy of div
         const itemElement = ITEM_TEMPLATE.content.cloneNode(true);
         const descriptionInput = itemElement.querySelector(".item-description");
@@ -357,26 +356,26 @@ function changeSound(theme, audioElement) {
 
     switch (theme) {
         case 'forest':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/forest.mp3"
+            audioElement.src = "./assets/sound/bird-sound.mp3"
             break;
         case 'ocean':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/ocean.mp3"
+            audioElement.src = "./assets/sound/cottagecore.mp3"
             break;
         case 'rainy':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/rain.mp3"
+            audioElement.src = "./assets/sound/crickets.mp3"
             break;
         case 'peace':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/peace.mp3"
+            audioElement.src = "./assets/sound/piano.mp3"
             break;
         case 'cafe':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/cafe.mp3"
+            audioElement.src = "./assets/sound/stream.mp3"
             break;
         case 'mute':
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/cafe.mp3"
+            audioElement.src = "./assets/sound/documentary.mp3"
             audioElement.muted = true;
             break;
         default:
-            audioElement.src = "https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/rain.mp3"
+            audioElement.src = "./assets/sound/cottagecore.mp3"
             break;
     }
     audioElement.play();
